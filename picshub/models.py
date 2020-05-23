@@ -4,7 +4,8 @@ from django.db import models
 class location(models.Model):
     image_location = models.CharField(max_length=60)
 
-
+class category(models.Model):
+    image_category = models.CharField(max_length=60)
 
 class Image(models.Model):
     image_name = models.CharField(max_length=60)
