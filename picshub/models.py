@@ -2,11 +2,13 @@ from django.db import models
 
 # Create your models here.
 class location(models.Model):
-    image_location = models.CharField(max_length=60)
+    pic_location = models.CharField(max_length=60)
 
 class category(models.Model):
-    image_category = models.CharField(max_length=60)
+    pic_category = models.CharField(max_length=60)
 
 class Image(models.Model):
     image_name = models.CharField(max_length=60)
     image_description = models.TextField()
+    image_location = models.ForeignKey(location)
+    image_category = models.ForeignKey(category)
