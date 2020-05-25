@@ -14,6 +14,7 @@ class categories(models.Model):
         return self.pic_category
 
 class Image(models.Model):
+    image = models.ImageField(upload_to='image/')
     image_name = models.CharField(max_length=60)
     image_description = models.TextField()
     image_location = models.ForeignKey(location)
