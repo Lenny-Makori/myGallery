@@ -5,9 +5,9 @@
   <meta charset="utf-8">
 
   {% if title %}
-  <title>Moringa Tribune - {{title}}</title>
+  <title>My Gallery - {{title}}</title>
   {% else %}
-    <title> Moringa Tribune </title>
+    <title> My Gallery </title>
   {% endif %}
 
   {% block styles %}
@@ -17,7 +17,7 @@
 </head>
 <body>
     {% include "navbar.html" %}
-    {% block content %} <h1 class='text-center'>Welcome to My Gallery</h1> {%endblock%}
+    {% block content %} <h1 class='text-center'>Welcome to My Gallery</h1> <p>{{image_display}}</p>{%endblock%}
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
