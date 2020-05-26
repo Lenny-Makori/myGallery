@@ -3,8 +3,8 @@
 <div class="container">
 
   <div class="row">
-    {% if images%}
-      <h2>Found {{ images|length }} of searched term {{message}}</h2>
+    {% if category%}
+      <h2>Found {{ category|length }} of searched term {{message}}</h2>
     {% else %}
       <h2> Found 0 images for the search term {{message}}</h2>
     {% endif %}
@@ -13,10 +13,12 @@
 
   <div class="row">
 
-  {% if images %}
-    {% for image in images %}
+  {% if category %}
+    {% for image in category %}
       <div class="col-sm-6 col-md-3">
-          <h1>{{image.title}}</h1>
+        <img src="{{image.image.url}}"  class="img-responsive" alt="{{image.image_name}}"> 
+          <h1>{{image.image_name}}</h1>
+          <a href="{% url 'imageview' image_id=image.id %}">View image</a>
       </div>
     {% endfor %}
   {% endif %}

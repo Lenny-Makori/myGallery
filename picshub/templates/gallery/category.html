@@ -1,0 +1,33 @@
+{%extends 'gallery/base.html'%}
+<div class="row">
+    {%for images in category_images%}
+    
+    
+        <div class="col-sm-6  col-md-4">
+            <div class="thumbnail">
+                <img id='myImg' src="{{images.image.url}}" class="img-responsive myImg" alt="Image">
+                <div class="caption">
+                    <h3>{{images.image_name}}</h3>
+                    <p>{{images.image_description| truncatechars:10}}.</p>
+                    <p><a href=" #" class="btn btn-primary" role="button">Button</a> 
+                        <a href="{%url 'imagepath' image_id=images.id%}" class="btn btn-default" role="button">More info...</a></p>
+                </div>
+            </div>
+        </div>
+  
+
+
+
+    <!-- The Modal*********************************** -->
+            <div id="myModal" class="modal mmyModal">
+                <span class="close">&times;</span>
+                <img class="modal-conten" id="img01"src="{{images.image.url}}" >
+                <div id="caption">teststs</div>
+            </div>
+
+
+    
+
+    {%endfor%}
+</div>
+    {%endblock%}
