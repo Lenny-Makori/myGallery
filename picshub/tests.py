@@ -9,7 +9,7 @@ class ImageTest(TestCase):
         self.new_category = Category(category_name='vacation')
         self.new_category.save()
 
-       self.image = Image(image="image1.jpg", image_name='Model', image_description='modelling', image_location=self.new_location, image_category=self.new_category)
+       self.image = Image(image="image.jpg", image_name='Model', image_description='modelling', image_location=self.new_location, image_category=self.new_category)
        self.image.save_image()
 
     def tearDown(self):
@@ -22,7 +22,11 @@ class ImageTest(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images)>0)
 
-    
+    def test_update_method(self):
+        self.image.save_image()
+        new_image = Image.objects.filter(image='image.jpg').update(image='new_image.jpg')
+        images = Image.objects.get(image='new_image.jpg')
+        self.assertTrue(images.image, 'new_image.jpg')
 
     
 
