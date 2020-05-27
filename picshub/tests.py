@@ -12,4 +12,8 @@ class ImageTest(TestCase):
        self.image = Image(image_name='Fashion', image_description='menswear', image_location=self.new_location, image_category=self.new_category)
        self.image.save_image()
 
-    
+    def tearDown(self):
+        Image.objects.all().delete()
+        location.objects.all().delete()
+        categories.objects.all().delete()
+
