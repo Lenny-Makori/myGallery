@@ -34,5 +34,10 @@ class ImageTest(TestCase):
         images = Image.objects.all()
         self.assertTrue(len(images) == 0)
 
+    def test_get_image_by_id(self):
+        self.image.save_image()
+        found_image= Image.get_image_by_id(self.image.id)
+        self.assertTrue(found_image, self.image)
+
     
 
