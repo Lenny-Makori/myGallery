@@ -1,32 +1,32 @@
-# 
+# myGallery
 
 By **Lenny Makori**
 
 ## Description
-This application enables a user to create his/her profile, be able to add credentials of his/her accounts and be able to manage all the credentials
+This application is a wall of my photo gallery moments.
 
 ## Setup/Installation Requirements
-* Go to https://github.com/Lenny-Makori/Password-Locker
-* git clone https://github.com/Lenny-Makori/Password-Locker.git to get the project to your computer.
-* Enter the app directory on your terminal and run `chmod +x run.py`.
-* Now run `./run.py` to open the program
+* Go to https://github.com/Lenny-Makori/myGallery
+* git clone https://github.com/Lenny-Makori/myGallery.git to get the project to your computer.
+* Enter the app directory on your terminal and crete a virtual environment.
+* Install all the dependencies on the requirements.txt file.
+* Run `source .env`
+* Then run `python3.6 manage.py runserver`
 
 ## Known Bugs
-The program is not able to log out of the Password-Locker account without exiting the program, but that will be implemented in the future.
+The image url can't be copied to clipboard but it will be implemented in future.
 
 ## Behaviour Driven Development
 | Behaviour  | Input | Output |
 | ------------- | ------------- | ------------- |
-| Create a user profile  | The user is prompted to create a user profile | After submitting the user details, the user is logged in and now can be able to access the password locker features|
-| Add an existing account  | The user can choose to add credentials of an existing account's and is prompted to key the credentials | The crdentials of the account is saved and user is prompted to choose what other feature he/she would like to use.  |
-| Display accounts | The user can choose to view all the added accounts | All the added accounts get displayed for the user. |
-| Delete an account | The user can choose to delete an account and is prompted to enter the name of the account to be deleted. | The account gets deleted from the program.|
-| Exit the program | The user can choose to exit the program. | The program gets closed. |
-|||
+| Viewing an image details | Click on an image. | A modal pops up displaying the image details. |
+| Search for an image category. | Input a category in the search bar. | The images with the searched category get displayed.  |
+| View full details | Click on the button for more info | The full details of the selected image get displayed |
 
 ## Technologies Used
 This page was created using: 
-* Python
+* Python/Django
+* CSS/Bootstrap
 
 ## Support and contact details
 In case you encounter any  troubles in installing the application, contact me on makorilenny28@gmail.com.
