@@ -4,7 +4,7 @@
 {%for item in image_display%}
 <div class="col-sm-6  col-md-4">
     <div class="thumbnail">
-        <img id='myImg' src="{{item.image.url}}" class="img-responsive myImg" alt="Image">
+        <img id='myImg' src="{{item.image.url}}" class="img-responsive myImg" alt="Image" data-toggle="modal" data-target="#exampleModal{{item.id}}"class="img-responsive" alt="Image" style="max-width:300px;">
         <div class="caption">
             <h3>{{item.image_name}}</h3>
             <p>{{item.image_description| truncatechars:25}}.</p>
@@ -13,4 +13,51 @@
     </div>
 </div>
 {%endfor%}
+
+<!--  modal -->
+{% for photo_item in image_display %}
+<div class="modal fade"  id="exampleModal{{photo_item.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLongTitle">{{photo_item.name }}</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+     </div>
+    <div class="modal-body">
+      <img src="{{photo_item.image.url}}" class="img-fluid" data-toggle="modal" data-target="#exampleModal{{photo_item.id}}" style="width: 100%;">
+      <h3>{{photo_item.image_description}}</h3>
+      <p> {{photo_item.description }}</p><label for="location"> Location :{{photo_item.image_location }}</label>
+
+
+    </div>
+    <div class="modal-footer">
+      <a onclick="copyText()"><button type="button" class="btn btn-outline-secondary my-2 my-sm-0 link-btn">Copy
+          image Link</button></a>
+
+    </div>
+    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+   </div>
+</div>
+</div>
+<script>
+    function copyText() {
+    /* Get the text field */
+    var copyText = document.getElementById("thislinkhere-{{photo_item.id}}")
+  
+    /* Select the text field */
+    copyText.select();
+  
+    /* Copy the text inside the text field */
+    document.execCommand("copy");
+  
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+  }
+  </script>
+
+{%endfor%}
+
 {%endblock%}

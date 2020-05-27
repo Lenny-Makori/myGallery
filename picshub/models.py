@@ -7,7 +7,7 @@ class location(models.Model):
     def __str__(self):
         return self.pic_location
 
-    classmethod
+    @classmethod
     def get_location(cls):
         given_location = cls.objects.all()
         return given_location
